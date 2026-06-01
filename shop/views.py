@@ -7,13 +7,13 @@ from shop.forms.category_form import CategoryForm
 
 def products_view(request):
     products = Product.objects.all()
-    context = {'shop': products}
+    context = {'products': products}
     return render(request, 'catalog/products.html', context)
 
 def product_view(request, pk):
     task = get_object_or_404(Product, pk=pk)
     context = {'task': task}
-    return render(request, "catalog/product_details.html", context)
+    return render(request, "catalog/product_view.html", context)
 
 def category_add_view(request):
     if request.method == 'POST':

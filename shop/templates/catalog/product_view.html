@@ -1,7 +1,14 @@
 {% extends "base.html" %}
+
 {% block add_product %}
-     <a class="btn btn-primary btn-m" href="{% url 'create_task' %}">Добавить товар</a>
+    <a class="btn btn-primary btn-sm" href="{% url 'add_product' %}">Добавить товар</a>
 {% endblock %}
+
+{% block add_category %}
+    <a class="btn btn-primary btn-sm" href="{% url 'add_category' %}">Добавить категорию</a>
+{% endblock %}
+
+
 {% block content %}
     <div class="card my-5">
         <div class="card-header fs-4 text-center">{{task.status}}</div>
