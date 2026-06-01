@@ -12,7 +12,9 @@
 
 <nav class="navbar navbar-expand-md bg-dark py-4">
         <div class="container">
-           <a class="nav-link active text-white" aria-current="page" href="{% url 'main' %}">Главная</a>
+           <a class="navbar-brand" href="{% url 'main' %}">
+               <img src="{% static 'images/logo.jpg' %}" alt="logo" height="50" class="rounded">
+           </a>
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto ">
@@ -25,7 +27,7 @@
                         {% endblock %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white ms-md-3" href="#">About Us</a>
+                        <a class="nav-link text-white ms-md-3" href="{% url 'main' %}">Главная</a>
                     </li>
                 </ul>
             </div>

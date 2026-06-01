@@ -11,8 +11,8 @@ def products_view(request):
     return render(request, 'catalog/products.html', context)
 
 def product_view(request, pk):
-    task = get_object_or_404(Product, pk=pk)
-    context = {'task': task}
+    product = get_object_or_404(Product, pk=pk)
+    context = {'product': product}
     return render(request, "catalog/product_view.html", context)
 
 def category_add_view(request):
@@ -35,9 +35,4 @@ def product_add_view(request):
         form = ProductForm()
     return render(request, 'catalog/add_product.html', {'form': form})
 
-
-# def delete_product(request, pk):
-#     task = Product.objects.get(id=pk)
-#     task.delete()
-#     return redirect('main')
 
