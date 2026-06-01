@@ -17,17 +17,17 @@
            </a>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto ">
-                    <li class="nav-item">
+                <ul class="navbar-nav ms-auto text-white ">
+                    <li class="nav-item ">
                         {% block add_product %}
                         {% endblock %}
                     </li>
-                    <li class="nav-item ms-3">
+                    <li class="nav-item">
                         {% block add_category %}
                         {% endblock %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white ms-md-3" href="{% url 'main' %}">Главная</a>
+                        <a class="nav-link text-white" href="{% url 'main' %}">Главная</a>
                     </li>
                 </ul>
             </div>

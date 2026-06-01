@@ -27,7 +27,7 @@ def category_add_view(request):
 
 def product_add_view(request):
     if request.method == 'POST':
-        form = ProductForm(request.POST)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('main')

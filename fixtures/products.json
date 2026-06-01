@@ -1,0 +1,38 @@
+[
+{
+  "model": "shop.product",
+  "pk": 1,
+  "fields": {
+    "name": "Собака",
+    "description": "Черная овчарка",
+    "category": 1,
+    "created_at": "2026-06-01T11:05:29.945Z",
+    "price": "120000.00",
+    "img": "products/no_image.png"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 2,
+  "fields": {
+    "name": "преступление и наказание",
+    "description": "книга достоевского преступление и наказание",
+    "category": 2,
+    "created_at": "2026-06-01T12:09:48.533Z",
+    "price": "500.00",
+    "img": "products/pin.jpeg"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 3,
+  "fields": {
+    "name": "ходячий замок",
+    "description": "Диана уинн джонс классная книга и тд и тп",
+    "category": 2,
+    "created_at": "2026-06-01T12:14:34.661Z",
+    "price": "700.00",
+    "img": "products/castle.jpeg"
+  }
+}
+]

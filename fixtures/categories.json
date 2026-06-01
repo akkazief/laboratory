@@ -1,0 +1,18 @@
+[
+{
+  "model": "shop.category",
+  "pk": 1,
+  "fields": {
+    "name": "Животные",
+    "description": ""
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 2,
+  "fields": {
+    "name": "Литература",
+    "description": "книги, журналы и прочее"
+  }
+}
+]
