@@ -1,10 +1,10 @@
 from django import forms
-from .models import Task
+from shop.models.product import Product
 
 
 class TaskForm(forms.ModelForm):
     class Meta:
-        model = Task
+        model = Product
         fields = ('title', 'description' ,'status', 'deadline')
         widgets = {
             'title': forms.TextInput(attrs={
