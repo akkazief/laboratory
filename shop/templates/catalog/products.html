@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block nav %}
+    <a class="btn btn-primary btn-m" href="{% url 'add_product' %}">Добавить задачу</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  {% for product in products %}
+    <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="{{ product.img.url }}" class="card-img-top" alt="{{ product.name }}">
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-text">{{ product.price }} сом </p>
+                  <a href="{ % url 'product_details' product.pk  % }" class="btn btn-primary">Подробнее</a>
+                </div>
+          </div>
+    </div>
+    {% empty %}
+        <p>Товаров пока нет</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+

@@ -6,7 +6,7 @@ class Product(models.Model):
     description = models.TextField(max_length=500, null=True, blank=True, verbose_name="Описание")
     category = models.ForeignKey("shop.Category", on_delete=models.RESTRICT)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
-    price = models.DecimalField(verbose_name="Стоимость")
+    price = models.DecimalField(verbose_name="Стоимость", max_digits=10, decimal_places=2)
     img = models.ImageField(upload_to="products/", default="products/no_image.png")
 
 
@@ -14,5 +14,6 @@ class Product(models.Model):
         return self.name
 
     class Meta:
-        db_table = "Товары"
-        verbose_name = "Товары"
+        db_table = 'products'
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товары'
