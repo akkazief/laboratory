@@ -7,7 +7,7 @@ class Product(models.Model):
     category = models.ForeignKey("shop.Category", on_delete=models.RESTRICT)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     price = models.DecimalField(verbose_name="Стоимость")
-    img = models.ImageField(upload_to="products/")
+    img = models.ImageField(upload_to="products/", default="products/no_image.png")
 
 
     def __str__(self):
