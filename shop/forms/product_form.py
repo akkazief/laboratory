@@ -9,7 +9,7 @@ class ProductForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Введите ваше описание',}),
+                'placeholder': 'Введите название',}),
             'description': forms.Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'Поле для детального описания'
@@ -22,8 +22,7 @@ class ProductForm(forms.ModelForm):
                 'placeholder': 'Введите стоимость товара'
             }),
             'img': forms.FileInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'поле для вашего изображения'
+                'class': 'form-control'
             })
         }
 

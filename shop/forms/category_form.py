@@ -10,8 +10,8 @@ class CategoryForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Название'}),
+                'placeholder': 'Введите название'}),
             'description': forms.TextInput(attrs={
                 'class': 'form-control',
-            'placeholder': 'Описание'}),
+            'placeholder': 'Введите описание'}),
         }
