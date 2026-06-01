@@ -2,23 +2,28 @@ from django import forms
 from shop.models.product import Product
 
 
-class TaskForm(forms.ModelForm):
+class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('title', 'description' ,'status', 'deadline')
+        fields = ('name', 'description' ,'category', 'price', 'img')
         widgets = {
-            'title': forms.TextInput(attrs={
+            'name': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Введите ваше описание',}),
             'description': forms.Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'Поле для детального описания'
             }),
-            'status': forms.Select(attrs={
+            'category': forms.Select(attrs={
                 'class': 'form-control',
             }),
-            'deadline': forms.DateInput(attrs={
+            'price': forms.NumberInput(attrs={
                 'class': 'form-control',
-                'type': 'date',
+                'placeholder': 'Введите стоимость товара'
+            }),
+            'img': forms.FileInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'поле для вашего изображения'
             })
         }
+

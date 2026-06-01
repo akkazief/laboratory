@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect,get_object_or_404
 
 from shop.models.product import Product
-from shop.forms import TaskForm
+from forms.product_form import TaskForm
 
 
 def tasks(request):
