@@ -12,17 +12,37 @@
 
 {% block content %}
 
-<div class="row">
-  {% for product in products %}
-    <div class="col-md-4 mb-3 mt-5">
-          <div class="card">
-            <img src="{{ product.img.url }}" class="card-img-top" alt="{{ product.name }}">
-                <div class="card-body">
-                  <h5 class="card-title">{{ product.name }}</h5>
-                  <p class="card-text">{{ product.price }} сом </p>
-                  <a href="{% url 'product_view' product.pk  %}" class="btn btn-primary">Подробнее</a>
+<div class="page-header d-flex justify-content-between align-items-center my-4 p-3">
+    <h1>Товары</h1>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+{% for product in products %}
+    <div class="col">
+        <div class="card border-secondary h-100">
+            <img src="{{ product.img|default:'https://placehold.co/400x300?text=No+Image' }}" class="card-img-top" alt="{{ product.name }}">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 fw-bold">{{ product.name }}</h6>
+                <small class="text-muted">{{ product.category }}</small>
+            </div>
+            <div class="card-body text-secondary">
+                <p class="card-text">{{ product.description }}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+                <h6 class="mb-0">{{ product.price }} сом</h6>
+                <div class="d-flex gap-2">
+                    <a href="{% url 'product_view' product.pk %}" class="btn btn-sm btn-outline-primary">
+                        <i class="fa-regular fa-eye"></i>
+                    </a>
+                    <a href="{% url 'product_update' product.pk %}" class="btn btn-sm btn-outline-warning">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </a>
+                    <a href="{% url 'product_delete' product.pk %}" class="btn btn-sm btn-outline-danger">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </a>
                 </div>
-          </div>
+            </div>
+        </div>
     </div>
     {% empty %}
         <p>Товаров пока нет</p>

@@ -34,3 +34,21 @@ def product_add_view(request):
     else:
         form = ProductForm()
     return render(request, 'catalog/add_product.html', {'form': form})
+
+def product_delete_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        product.delete()
+        return redirect('main')
+    return render(request, 'catalog/delete_product.html', {'product': product})
+
+def product_update_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('main')
+    else:
+        form = ProductForm(instance=product)
+    return render(request, 'catalog/update_product.html', {'form': form, 'product': product})
