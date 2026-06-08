@@ -29,10 +29,8 @@ def product_add_view(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('main')
+            product = form.save()
+            return redirect('product_view', pk=product.pk)
     else:
         form = ProductForm()
     return render(request, 'catalog/add_product.html', {'form': form})
-
-
