@@ -3,12 +3,23 @@ from django.shortcuts import render, redirect,get_object_or_404
 from shop.models.product import Product
 from shop.forms.product_form import ProductForm
 from shop.forms.category_form import CategoryForm
-
+from shop.forms.search_form import SearchForm
 
 def products_view(request):
-    products = Product.objects.all()
-    context = {'products': products}
-    return render(request, 'catalog/products.html', context)
+    search = SearchForm(request.GET)
+    products = Product.objects.filter(stock__gte=1).order_by('category', 'name')
+
+    if search.is_valid():
+        query = search.cleaned_data.get('query')
+        if query:
+            products = products.filter(name__icontains=query)
+
+    context = {'products': products,
+               'search': search,
+               'create_form': ProductForm(),
+               }
+
+    return render(request, "catalog/products.html", context)
 
 def product_view(request, pk):
     product = get_object_or_404(Product, pk=pk)

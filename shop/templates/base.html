@@ -15,9 +15,12 @@
 
 <nav class="navbar navbar-expand-md bg-dark py-4">
         <div class="container">
-           <a class="navbar-brand" href="{% url 'main' %}">
+            <a class="navbar-brand" href="{% url 'main' %}">
                <img src="{% static 'images/logo.jpg' %}" alt="logo" height="50" class="rounded">
-           </a>
+            </a>
+
+            {% block search %}
+            {% endblock %}
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto text-white ">
