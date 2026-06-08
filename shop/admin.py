@@ -3,10 +3,10 @@ from django.contrib import admin
 from .models import Category, Product
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'description', 'category', 'created_at', 'price', 'img', 'stock')
+    list_display = ('id', 'name', 'description', 'category','stock', 'price', 'created_at', 'img' )
     list_filter = ('category', 'created_at', 'stock')
     search_fields = ('name', 'description')
-    fields = ('name', 'description', 'category', 'price', 'img', 'stock')
+    fields = ('name', 'description', 'category', 'price', 'stock', 'img')
 
 
 class CategoryAdmin(admin.ModelAdmin):
