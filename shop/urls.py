@@ -1,6 +1,6 @@
 from django.urls import path
-from shop.views import products_view, product_add_view, product_view, category_add_view, product_delete_view, product_update_view
-
+from shop.views.product_views import products_view, product_add_view, product_view, product_delete_view, product_update_view
+from shop.views.category_views import category_add_view
 
 urlpatterns = [
     path('', products_view, name='main'),
