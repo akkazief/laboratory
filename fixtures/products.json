@@ -40,15 +40,54 @@
 },
 {
   "model": "shop.product",
-  "pk": 4,
+  "pk": 5,
   "fields": {
-    "name": "Aloe vera",
-    "description": "Вкусненкьо",
-    "category": 4,
-    "created_at": "2026-06-08T08:03:36.811Z",
-    "price": "120.00",
-    "img": "https://i.ebayimg.com/images/g/mnYAAOSwXUJjwD2S/s-l1600.jpg",
+    "name": "Роллсы Choopa-Choops",
+    "description": "дорого",
+    "category": 3,
+    "created_at": "2026-06-08T11:52:01.956Z",
+    "price": "140.00",
+    "img": "https://storage.yandexcloud.net/mostro-gm-media/8645b293-1b37-b08e-a34e-cea4b89a33be/1.jpg",
     "stock": 0
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 6,
+  "fields": {
+    "name": "Тан",
+    "description": "В ларьке вкуснее",
+    "category": 4,
+    "created_at": "2026-06-08T11:53:02.821Z",
+    "price": "110.00",
+    "img": "https://lh3.googleusercontent.com/proxy/3RfFFcNfYXfR4Yizh5tTRZzAK2wo7m162QC0RUwMveh3Cn_B7nCuzgijKDmMye49Q4HLBDjGVTADvRg9uYc-gsHrSMw_Z0sinP6m5ALJrA",
+    "stock": 0
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 7,
+  "fields": {
+    "name": "Фрумеладки",
+    "description": "С сочным центром вообще фу, эти норм",
+    "category": 3,
+    "created_at": "2026-06-08T11:57:25.523Z",
+    "price": "180.00",
+    "img": "https://rskrf.ru/upload/iblock/5e1/i17vm44czrxlk6os3tawjfcdczk4bap3.jpg",
+    "stock": 1
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 8,
+  "fields": {
+    "name": "Maxi чай лесные ягоды",
+    "description": "если макси -  только этот",
+    "category": 4,
+    "created_at": "2026-06-08T11:59:14.166Z",
+    "price": "80.00",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbVajepGPKtlEpgRa1v-LwmgMJgQ8np5cyFg&s",
+    "stock": 4
   }
 }
 ]
