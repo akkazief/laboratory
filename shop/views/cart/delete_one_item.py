@@ -3,6 +3,7 @@ from django.views.generic import View
 
 from shop.models.cart import Cart
 
+
 class DeleteOneItemView(View):
     def get(self, request, pk):
         cart_item = get_object_or_404(Cart, pk=pk)

@@ -2,10 +2,18 @@ from django.db import models
 
 
 class OrderProduct(models.Model):
-    order = models.ForeignKey("shop.Order",on_delete=models.CASCADE,
-                verbose_name="Заказ",related_name="order_products",)
-    product = models.ForeignKey("shop.Product",on_delete=models.RESTRICT,
-                verbose_name="Товар",related_name="order_products",)
+    order = models.ForeignKey(
+        "shop.Order",
+        on_delete=models.CASCADE,
+        verbose_name="Заказ",
+        related_name="order_products",
+    )
+    product = models.ForeignKey(
+        "shop.Product",
+        on_delete=models.RESTRICT,
+        verbose_name="Товар",
+        related_name="order_products",
+    )
 
     amount = models.PositiveIntegerField(verbose_name="Количество")
 

@@ -5,44 +5,91 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0003_cart'),
+        ("shop", "0003_cart"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Order',
+            name="Order",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('username', models.CharField(max_length=100, verbose_name='Имя пользователя')),
-                ('phone', models.CharField(max_length=30, verbose_name='Номер телефона')),
-                ('address', models.CharField(max_length=150, verbose_name='Адрес')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "username",
+                    models.CharField(max_length=100, verbose_name="Имя пользователя"),
+                ),
+                (
+                    "phone",
+                    models.CharField(max_length=30, verbose_name="Номер телефона"),
+                ),
+                ("address", models.CharField(max_length=150, verbose_name="Адрес")),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Дата создания"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Заказ',
-                'verbose_name_plural': 'Заказы',
-                'db_table': 'orders',
+                "verbose_name": "Заказ",
+                "verbose_name_plural": "Заказы",
+                "db_table": "orders",
             },
         ),
         migrations.CreateModel(
-            name='OrderProduct',
+            name="OrderProduct",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('amount', models.PositiveIntegerField(verbose_name='Количество')),
-                ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='order_products', to='shop.order', verbose_name='Заказ')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, related_name='order_products', to='shop.product', verbose_name='Товар')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("amount", models.PositiveIntegerField(verbose_name="Количество")),
+                (
+                    "order",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="order_products",
+                        to="shop.order",
+                        verbose_name="Заказ",
+                    ),
+                ),
+                (
+                    "product",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.RESTRICT,
+                        related_name="order_products",
+                        to="shop.product",
+                        verbose_name="Товар",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Товар в заказе',
-                'verbose_name_plural': 'Товары в заказе',
-                'db_table': 'order_products',
+                "verbose_name": "Товар в заказе",
+                "verbose_name_plural": "Товары в заказе",
+                "db_table": "order_products",
             },
         ),
         migrations.AddField(
-            model_name='order',
-            name='products',
-            field=models.ManyToManyField(related_name='orders', through='shop.OrderProduct', to='shop.product', verbose_name='Товары'),
+            model_name="order",
+            name="products",
+            field=models.ManyToManyField(
+                related_name="orders",
+                through="shop.OrderProduct",
+                to="shop.product",
+                verbose_name="Товары",
+            ),
         ),
     ]

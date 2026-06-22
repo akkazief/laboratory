@@ -6,6 +6,7 @@ from shop.models.product import Product
 
 from shop.forms.product_form import ProductForm
 
+
 class ProductUpdateView(UpdateView):
     template_name = "catalog/products/update.html"
     model = Product

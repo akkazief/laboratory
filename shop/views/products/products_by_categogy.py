@@ -5,6 +5,7 @@ from shop.models.category import Category
 from shop.forms.product_form import ProductForm
 from shop.forms.search_form import SearchForm
 
+
 class ProductsByCategoryView(ListView):
     template_name = "catalog/products/list_by_categories.html"
     context_object_name = "products"
@@ -20,8 +21,7 @@ class ProductsByCategoryView(ListView):
 
     def get_queryset(self):
         queryset = Product.objects.filter(
-            stock__gte=1,
-            category__name=self.kwargs["category_name"]
+            stock__gte=1, category__name=self.kwargs["category_name"]
         ).order_by("name")
         if self.search_value:
             queryset = queryset.filter(name__icontains=self.search_value)

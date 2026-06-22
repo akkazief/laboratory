@@ -17,9 +17,7 @@ class AddToCartView(View):
             if product.stock < 1:
                 return redirect(request.META.get("HTTP_REFERER", "main"))
 
-            cart_item, created = Cart.objects.get_or_create(
-                product=product
-            )
+            cart_item, created = Cart.objects.get_or_create(product=product)
 
             if created:
                 if amount <= product.stock:

@@ -4,25 +4,26 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0001_initial'),
+        ("shop", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='stock',
-            field=models.PositiveIntegerField(default=0, verbose_name='Остаток'),
+            model_name="product",
+            name="stock",
+            field=models.PositiveIntegerField(default=0, verbose_name="Остаток"),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='img',
-            field=models.URLField(verbose_name='Ссылка на изображение'),
+            model_name="product",
+            name="img",
+            field=models.URLField(verbose_name="Ссылка на изображение"),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='price',
-            field=models.DecimalField(decimal_places=2, max_digits=7, verbose_name='Стоимость'),
+            model_name="product",
+            name="price",
+            field=models.DecimalField(
+                decimal_places=2, max_digits=7, verbose_name="Стоимость"
+            ),
         ),
     ]

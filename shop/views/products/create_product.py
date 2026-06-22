@@ -3,6 +3,7 @@ from django.views.generic import CreateView
 
 from shop.forms.product_form import ProductForm
 
+
 class ProductCreateView(CreateView):
     template_name = "catalog/products/create.html"
     form_class = ProductForm

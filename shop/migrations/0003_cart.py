@@ -5,23 +5,40 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0002_product_stock_alter_product_img_alter_product_price'),
+        ("shop", "0002_product_stock_alter_product_img_alter_product_price"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Cart',
+            name="Cart",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('amount', models.PositiveIntegerField(default=1, verbose_name='Количество')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, related_name='product', to='shop.product')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "amount",
+                    models.PositiveIntegerField(default=1, verbose_name="Количество"),
+                ),
+                (
+                    "product",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.RESTRICT,
+                        related_name="product",
+                        to="shop.product",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Товар в корзине',
-                'verbose_name_plural': 'Товары в корзине',
-                'db_table': 'cart_items',
+                "verbose_name": "Товар в корзине",
+                "verbose_name_plural": "Товары в корзине",
+                "db_table": "cart_items",
             },
         ),
     ]
