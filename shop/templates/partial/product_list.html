@@ -32,9 +32,7 @@
                     <a href="{% url 'product_delete' product.pk %}" class="btn btn-sm btn-outline-danger">
                         <i class="fa-regular fa-trash-can"></i>
                     </a>
-                    <a href="{% url 'add_to_cart' product.pk %}" class="btn btn-sm btn-outline-success">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
+                    {% include "partial/add_to_cart_button.html" %}
                 </div>
             </div>
         </div>

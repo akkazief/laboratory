@@ -1,21 +1,34 @@
 from django.shortcuts import redirect, get_object_or_404
 from django.views.generic import View
 
+from shop.forms import AddToCartForm
 from shop.models import Cart
-from shop.models.product import Product
+from shop.models import Product
+
 
 class AddToCartView(View):
-    def get(self, request, pk):
+    def post(self, request, pk):
         product = get_object_or_404(Product, pk=pk)
+        form = AddToCartForm(request.POST)
 
-        if product.stock < 1:
-            return redirect(request.META.get("HTTP_REFERER", "main"))
+        if form.is_valid():
+            amount = form.cleaned_data["amount"]
 
-        cart_item, created = Cart.objects.get_or_create(product=product)
+            if product.stock < 1:
+                return redirect(request.META.get("HTTP_REFERER", "main"))
 
-        if not created:
-            if cart_item.amount + 1 <= product.stock:
-                cart_item.amount += 1
-                cart_item.save()
+            cart_item, created = Cart.objects.get_or_create(
+                product=product
+            )
+
+            if created:
+                if amount <= product.stock:
+                    cart_item.amount = amount
+                    cart_item.save()
+            else:
+                new_amount = cart_item.amount + amount
+                if new_amount <= product.stock:
+                    cart_item.amount = new_amount
+                    cart_item.save()
 
         return redirect(request.META.get("HTTP_REFERER", "main"))

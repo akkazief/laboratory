@@ -1,0 +1,10 @@
+<form method="POST" action="{% url 'add_to_cart' product.pk %}">
+    {% csrf_token %}
+    <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-sm btn-outline-success">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <input type="number" name="amount" value="1" min="1"
+               class="form-control form-control-sm" style="width: 60px;">
+    </div>
+</form>
