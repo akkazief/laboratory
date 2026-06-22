@@ -13,3 +13,6 @@ class Cart(models.Model):
         db_table = "cart_items"
         verbose_name = "Товар в корзине"
         verbose_name_plural = "Товары в корзине"
+
+    def item_total(self):
+        return self.amount * self.product.price

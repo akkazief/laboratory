@@ -17,8 +17,8 @@
             <tr>
                 <td>{{ item.product.name }}</td>
                 <td>{{ item.product.price }}</td>
-                <td>{{ item.product.amount }}</td>
-                <td>{{ item.product.price|floatformat:2 }} сом</td>
+                <td>{{ item.amount }}</td>
+                <td>{{ item.item_total}}</td>
                 <td>
                     <a href="{% url 'delete_from_cart' item.pk %}" class="btn btn-sm btn-outline-danger">
                         <i class="fa-regular fa-trash-can"></i>
@@ -34,7 +34,7 @@
         <tfoot>
             <tr>
                 <td colspan="3"><strong>Итого:</strong></td>
-                <td colspan="2"><strong>{{ total }} сом</strong></td>
+                <td colspan="2"><strong>{{ cart_total }} сом</strong></td>
             </tr>
         </tfoot>
     </table>

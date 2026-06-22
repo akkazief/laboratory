@@ -9,7 +9,7 @@ class AddToCartView(View):
         product = get_object_or_404(Product, pk=pk)
 
         if product.stock < 1:
-            return redirect("main")
+            return redirect(request.META.get("HTTP_REFERER", "main"))
 
         cart_item, created = Cart.objects.get_or_create(product=product)
 
@@ -18,4 +18,4 @@ class AddToCartView(View):
                 cart_item.amount += 1
                 cart_item.save()
 
-        return redirect("main")
+        return redirect(request.META.get("HTTP_REFERER", "main"))
