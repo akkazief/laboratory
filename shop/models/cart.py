@@ -1,6 +1,6 @@
 from django.db import models
 
-from models import Product
+from shop.models import Product
 
 class Cart(models.Model):
     product = models.ForeignKey(Product, on_delete=models.RESTRICT, related_name='product')
