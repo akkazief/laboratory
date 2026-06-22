@@ -1,3 +1,4 @@
+from urllib.parse import urlencode
 from django.views.generic import ListView
 
 from shop.models.product import Product
@@ -9,6 +10,8 @@ from shop.forms.search_form import SearchForm
 class ProductsView(ListView):
     template_name = "catalog/products/list_all.html"
     context_object_name = "products"
+    paginate_by = 3
+    paginate_orphans = 1
 
     def dispatch(self, request, *args, **kwargs):
         self.form = SearchForm(request.GET)
@@ -28,4 +31,7 @@ class ProductsView(ListView):
         context["search"] = self.form
         context["categories"] = Category.objects.all().order_by("name")
         context["create_form"] = ProductForm()
+        if self.search_value:
+            context["query"] = urlencode({"query": self.search_value})
+            context["search_value"] = self.search_value
         return context
