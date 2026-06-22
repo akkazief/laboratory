@@ -39,4 +39,11 @@
             </tr>
         </tfoot>
     </table>
+
+    <h4 class="mt-4">Оформить заказ</h4>
+    <form method="POST" action="{% url 'create_order' %}">
+        {% csrf_token %}
+        {{ order_form.as_p }}
+        <button type="submit" class="btn btn-primary">Оформить заказ</button>
+    </form>
 {% endblock %}
